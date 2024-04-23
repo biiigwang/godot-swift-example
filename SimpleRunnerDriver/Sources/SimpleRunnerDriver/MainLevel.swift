@@ -2,9 +2,17 @@ import SwiftGodot
 
 @Godot
 class MainLevel: Node2D {
-  @SceneTree(path: "CharacterBody2D") var player: PlayerController?
-  @SceneTree(path: "Spawnpoint") var spawnpoint: Node2D?
-  @SceneTree(path: "Telepoint") var teleportArea: Area2D?
+
+  // Define some properties
+  @Export(.nodeType, "PlayerController")
+  var player: PlayerController?
+  @Export(.nodeType, "Node2D")
+  var spawnpoint: Node2D?
+  @Export(.nodeType, "Area2D")
+  var teleportArea: Area2D?
+
+  // Define signal
+  #signal("player_entry_teleport", arguments: ["new_player_positon": Vector2.self])
 
   override func _ready() {
     teleportArea?.bodyEntered.connect { [self] enteredBody in
@@ -22,5 +30,6 @@ class MainLevel: Node2D {
     }
 
     player.position = Vector2(x: player.position.x, y: spawnpoint.position.y)
+    emit(signal: MainLevel.playerEntryTeleport, player.position)
   }
 }

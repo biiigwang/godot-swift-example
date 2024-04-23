@@ -7,6 +7,10 @@ In this example, reproduce the tutorial of the GodotSwift community: [`Meet Swif
 
 ## Features
 - GDExtension plugin based on Swift
+  - [x] Perform custom swift code in godot
+  - [x] Export node's properties
+  - [x] Emit godot signal  
+  - [x] Connect other node's signal
 - Multi-platform exports
   - [x] Windows
   - [x] MacOS 

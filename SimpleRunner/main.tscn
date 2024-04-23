@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl105vstqmhgy"]
+[gd_scene load_steps=7 format=3 uid="uid://bl105vstqmhgy"]
 
 [ext_resource type="Texture2D" uid="uid://bomfo178w7cfn" path="res://assets/tileset.png" id="1_eymrw"]
 [ext_resource type="PackedScene" uid="uid://d21r2vhukevl7" path="res://objects/player.tscn" id="1_s381a"]
+[ext_resource type="Script" path="res://signal_listener.gd" id="3_3ai5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oydy7"]
 texture = ExtResource("1_eymrw")
@@ -87,7 +88,10 @@ sources/1 = SubResource("TileSetAtlasSource_oydy7")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgc1s"]
 size = Vector2(640, 20)
 
-[node name="Main Level" type="MainLevel"]
+[node name="Main Level" type="MainLevel" node_paths=PackedStringArray("player", "spawnpoint", "teleportArea")]
+player = NodePath("CharacterBody2D")
+spawnpoint = NodePath("Spawnpoint")
+teleportArea = NodePath("Telepoint")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_s381a")]
 z_index = 1
@@ -111,3 +115,8 @@ position = Vector2(2.08165e-12, 480)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Telepoint"]
 shape = SubResource("RectangleShape2D_rgc1s")
+
+[node name="SignalListener" type="Node2D" parent="."]
+script = ExtResource("3_3ai5l")
+
+[connection signal="player_entry_teleport" from="." to="SignalListener" method="_on_main_level_player_entry_teleport"]

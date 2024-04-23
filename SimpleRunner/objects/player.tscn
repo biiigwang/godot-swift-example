@@ -57,6 +57,8 @@ radius = 19.0
 height = 54.0
 
 [node name="CharacterBody2D" type="PlayerController"]
+friction = 300.0
+speed = 500.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

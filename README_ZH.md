@@ -7,6 +7,10 @@
 
 ## 特性
 - 基于Swift的GDExtension插件
+  - [x] 执行自定义逻辑
+  - [x] 暴露节点属性
+  - [x] 发送信号 
+  - [x] 链接其他节点的信号
 - 多平台导出
   - [x] Windows
   - [x] MacOS 
