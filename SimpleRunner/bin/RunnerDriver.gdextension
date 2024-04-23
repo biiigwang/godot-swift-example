@@ -1,0 +1,27 @@
+[configuration]
+entry_symbol = "swift_entry_point"
+compatibility_minimum = 4.2
+
+[libraries]
+macos.debug = "res://bin/arm64-apple-macosx-debug/libSimpleRunnerDriver.dylib"
+macos.release = "res://bin/arm64-apple-macosx-release/libSimpleRunnerDriver.dylib"
+windows.debug.x86_32 = "res://bin/MyFirstGame"
+windows.release.x86_32 = "res://bin/MyFirstGame"
+windows.debug.x86_64 = "res://bin/MyFirstGame"
+windows.release.x86_64 = "res://bin/MyFirstGame"
+linux.debug.x86_64 = "res://bin/MyFirstGame"
+linux.release.x86_64 = "res://bin/MyFirstGame"
+linux.debug.arm64 = "res://bin/MyFirstGame"
+linux.release.arm64 = "res://bin/MyFirstGame"
+linux.debug.rv64 = "res://bin/MyFirstGame"
+linux.release.rv64 = "res://bin/MyFirstGame"
+android.debug.x86_64 = "res://bin/MyFirstGame"
+android.release.x86_64 = "res://bin/MyFirstGame"
+android.debug.arm64 = "res://bin/MyFirstGame"
+android.release.arm64 = "res://bin/MyFirstGame"
+
+
+
+[dependencies]
+macos.debug = {"res://bin/arm64-apple-macosx-debug/libSwiftGodot.dylib" : ""}
+macos.release = {"res://bin/arm64-apple-macosx-release/libSwiftGodot.dylib" : ""}
